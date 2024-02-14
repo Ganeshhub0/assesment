@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h5>USERS</h5>
+<table border="2">
+  <tr>
+    <th>ID</th>
+  <!--  <th>STATUS</th>-->
+    <th>POLICY NUM</th>
+    <th>NAME</th>
+    <th>LINE1</th>
+    <th>LINE2</th>
+    <th>COVERAGES</th>
+    <th>STATE</th>
+
+  </tr>
+  <tr th:each="l:${list}">
+    <td th:text="${l.id}"></td>
+    <!--<td th:text="${l.status}"></td>-->
+    <td th:text="${l.policynum}"></td>
+    <td th:text="${l.name}"></td>
+    <td th:text="${l.addressline1}"></td>
+    <td th:text="${l.addressline2}"></td>
+    <td>
+    <ul>
+    <li th:each="c:${l.coverageList}" th:text="${c.coveragename}"></li>
+    </ul>
+    </td>
+    <td>
+      <ul>
+        <li th:each="c:${l.stateList}" th:text="${c.statename}"></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
